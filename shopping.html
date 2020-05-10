@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./iconfont/iconfont.css">
+    <link rel="stylesheet" href="./css/shoping.css">
+</head>
+<body>
+    <div id="logo">
+        <div class="logo-wrap">
+           <h2 class="logo-l">
+               <a href=""><img src="./images/logo.png" alt=""></a>
+               <span>购物车</span>
+            </h2>
+           <h3 class="logo-r">
+                <b class="iconfont icon-ziyuan"></b>
+                <i class="iconfont icon-denglu"></i>
+           </h3>
+        </div>
+    </div>
+    <div class="banner-wrap">
+        <div class="banner-box">
+            <span>购物车</span>
+            <div class="ruan"></div>
+        </div>
+        <div class="banner-box">
+            <span>确认订单</span>
+            <div class="ruan"></div>
+        </div>
+        <div class="banner-box">
+            <span>支付订单</span>
+            <div class="ruan"></div>
+        </div>
+        <div class="banner-box">
+            <span>完成支付</span>
+            <div class="ruan"></div>
+        </div>
+    </div>
+    <div class="shop-wrap">
+        <table >
+            <tr>
+                <td >
+                    <input type="checkbox">
+                  
+                </td>
+                
+                <!-- <td>商品名称</td>
+                <td>价格</td>
+                <td>数量</td>
+                <td>金额</td>
+                <td>操作</td> -->
+            </tr>
+            <tr>
+                <td>
+                    <input type="checkbox">
+                </td>
+                <td class="list-img"><img src="./images/list-1.png" alt=""></td>
+                <td>荣耀30</td>
+                <td>3199</td>
+                <td class="res">
+                    <input type="button" value="-" class="reduceBtn">
+                    <span>1</span>
+                    <input type="button" value="+" class="addBtn">
+                </td>
+                <td>3199</td>
+                <td>
+                    <input type="button" value="删除" class="delBtn">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="checkbox">
+                </td>
+                <td class="list-img"><img src="./images/list-3.png" alt=""></td>
+                <td>荣耀30Pro</td>
+                <td>3999</td>
+                <td class="res">
+                    <input type="button" value="-" class="reduceBtn">
+                    <span>1</span>
+                    <input type="button" value="+" class="addBtn">
+                </td>
+                <td>3999</td>
+                <td>
+                    <input type="button" value="删除" class="delBtn">
+                </td>   
+            </tr>
+            <tr style="margin-top: 20px;">
+                <td colspan="8" style="text-align: right;border-top: 1px solid #ccc;">
+                    总金额：<span style="border-bottom: 1px solid #ccc; width: 100px;height: 30px;display: inline-block;"></span>
+                </td>
+            </tr>
+        </table> 
+        
+    </div>
+    <h2 class="total-wrap">
+        <a href="" class="total">结算</a>
+    </h2>   
+    <div class="footer-wrap">
+        <p class="footer-p">
+            <a href="">法律声明</a>
+            <a href="">隐私声明</a>
+            <a href="">免责条款</a>
+            <a href="" class="clear_border">关于Cookie</a>
+        </p>
+        <h4>fhsfh&copy;华为牛逼华为牛逼华为牛逼nb我爱华为手机产品华为为手机真的好，请相信华为，华为用心服务</h4>
+    </div>
+
+
+</body>
+</html>
+<script src="js/jquery-3.2.1.min.js"></script>
+<script src="js/check.js"></script>
+<script>
+    $(function(){
+
+
+        $("table :checkbox:eq(0)").check($("table :checkbox:gt(0)"))
+        $(":checkbox").click(function(){
+            totalMoney()    
+        })
+
+        $(".reduceBtn").click(function(){
+            let count = $(this).next().html()
+            count--
+            if(count<1){
+                count=0
+            }
+            $(this).next().html(count)
+
+            let price = $(this).parent().prev().html()
+            price = price*count
+            $(this).parent().next().html(price)
+            if(count==0){
+                $(this).parent().parent().find(":checked").prop("checked",false)
+            }
+            totalMoney()
+        })
+        
+        $(".addBtn").click(function(){
+            let count = $(this).prev().html()
+            count++
+            $(this).prev().html(count)
+
+            let price = $(this).parent().prev().html()
+            price = price*count
+            $(this).parent().next().html(price)
+            totalMoney()
+        })
+        $(".delBtn").click(function(){
+            $(this).parent().parent().remove()
+        })
+        function totalMoney(){
+            let $tr = $("table tr:gt(0)").not("table tr:last")
+            let money = 0
+            $tr.each(function(){
+               if($(this).find(":checkbox").prop("checked")){
+                    money+=parseFloat($(this).children().eq(5).html())
+               }
+            })
+            $("table tr:last").children().eq(0).html("总金额："+money)
+        }
+    })
+</script>

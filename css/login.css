@@ -1,0 +1,110 @@
+@charset "utf-8";
+.logo-wrap,.reg-wrap,.footer-wrap{
+    width: 1410px;
+    margin: 0 auto;
+}
+#logo{
+    background-color: rgb(206, 203, 203);
+}
+.logo-wrap{
+    height: 56px;
+    background: white;
+}
+.logo-wrap .logo-1{
+    width:147px ;
+    height: 42px;
+    float: left;
+    display: block;
+  
+    padding: 14px 0 0 4px;
+}
+.logo-wrap .logo-2{
+    width: 118px;
+    color: #000000;
+    font-weight: bold;
+    height: 100%;
+    display: block;
+  
+    float: left;
+    line-height: 56px;
+    text-align: center;
+  
+}
+.logo-wrap .logo-2 a{
+    border-left: 1px solid gray;
+    padding: 0 25px;
+}
+.reg-wrap{
+    height: 750px   ;
+    background-color: #ccc;
+    text-align: center;
+    background: url(../images/login.png) no-repeat;
+    background-size: 100% 100%;
+}
+.reg-wrap .reg-1{
+    /* background: black;   */
+    text-align: center;
+    font-size: 38px;
+    color:#000000;
+    line-height: 38px;
+    padding-top: 88px;
+}
+.reg-wrap .reg-2{
+  
+    text-align: center;
+    font-size: 22px;
+    color: #000000;
+    line-height: 22px;
+    margin: 15px 0 74px;
+}
+.reg-wrap .reg-2 a{
+    color: #9999ff;
+}
+.reg-wrap input{
+    width: 300px;
+    height: 50px;
+    border-radius: 10px;
+   
+    text-align: center;
+    margin-bottom: 30px;
+
+}
+.reg-wrap #res-box{
+    width: 200px;
+}
+.reg-wrap #btnRes{
+    width: 100px;
+}
+.reg-wrap .submit{
+    width: 100px;
+    height: 50px;
+}
+.footer-wrap{
+    height: 100px;
+    background-color: #000000;
+}
+ .footer-box{
+    /* background-color: orange; */
+    padding-top: 30px;  
+    text-align: center;
+    
+}
+.footer-wrap .footer-box a{
+    /* float: left; */
+    color: white;
+    font-size: 14px;
+    line-height: 14px;
+    padding:0 20px;
+    display: inline-block;
+    border-right: 1px solid white;
+  
+    
+   
+}
+.footer-wrap h2{
+    color: white;
+    font-size: 14px;
+    line-height: 14px;
+    text-align: center;
+    padding-top: 5px;
+}
